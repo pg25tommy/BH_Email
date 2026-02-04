@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  firstName String
+  lastName  String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  emailRecipients EmailRecipient[]
+}
+
+model EmailLog {
+  id             String   @id @default(cuid())
+  subject        String
+  body           String
+  sentAt         DateTime @default(now())
+  recipientCount Int
+
+  recipients EmailRecipient[]
+}
+
+model EmailRecipient {
+  id           String @id @default(cuid())
+  emailLogId   String
+  subscriberId String
+  status       String @default("pending")
+
+  emailLog   EmailLog   @relation(fields: [emailLogId], references: [id], onDelete: Cascade)
+  subscriber Subscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+
+  @@index([emailLogId])
+  @@index([subscriberId])
+}
