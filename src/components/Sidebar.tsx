@@ -10,11 +10,13 @@ import {
   ClockIcon,
   Bars3Icon,
   XMarkIcon,
+  Squares2X2Icon,
 } from '@heroicons/react/24/outline';
 import LogoutButton from './LogoutButton';
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: HomeIcon },
+  { href: '/dashboard/menu-control', label: 'Menu Control', icon: Squares2X2Icon },
   { href: '/dashboard/subscribers', label: 'Subscribers', icon: UsersIcon },
   { href: '/dashboard/compose', label: 'Compose Email', icon: PencilSquareIcon },
   { href: '/dashboard/history', label: 'Email History', icon: ClockIcon },
