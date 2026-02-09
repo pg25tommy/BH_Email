@@ -46,7 +46,7 @@ export default function CategoriesPage() {
       <div className="flex items-center gap-4 mb-8">
         <Link
           href="/dashboard/menu-control"
-          className="p-2 rounded-full bg-wood-200 text-accent-700 hover:bg-wood-300 transition-colors"
+          className="p-3 md:p-2 rounded-full bg-wood-200 text-accent-700 hover:bg-wood-300 transition-colors"
         >
           <ArrowLeftIcon className="w-5 h-5" />
         </Link>

@@ -33,23 +33,23 @@ export default async function MenuControlPage() {
         <h1 className="text-3xl md:text-4xl font-heading text-primary-700">
           MENU CONTROL
         </h1>
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <Link
             href="/dashboard/menu-control/categories"
-            className="px-4 py-2 rounded-full bg-wood-200 text-accent-700 hover:bg-wood-300 transition-colors font-semibold"
+            className="px-5 py-3 md:px-4 md:py-2 rounded-full bg-wood-200 text-accent-700 hover:bg-wood-300 transition-colors font-semibold text-center"
           >
             Manage Categories
           </Link>
           <Link
             href="/dashboard/menu-control/items"
-            className="btn-primary bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold py-2 px-4 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg"
+            className="btn-primary bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold py-3 px-5 md:py-2 md:px-4 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg text-center"
           >
             Manage Items
           </Link>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
         <StatCard
           title="Categories"
           value={categoryCount}
@@ -83,7 +83,26 @@ export default async function MenuControlPage() {
             to get started.
           </p>
         ) : (
-          <div className="overflow-x-auto">
+          <>
+          {/* Mobile card layout */}
+          <div className="md:hidden divide-y divide-wood-100">
+            {categories.map((cat) => (
+              <div key={cat.id} className="py-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-accent-900 font-medium">{cat.name}</span>
+                  <span className="inline-flex items-center justify-center bg-primary-100 text-primary-700 text-sm font-semibold px-3 py-1 rounded-full">
+                    {cat._count.menuItems}
+                  </span>
+                </div>
+                {cat.description && (
+                  <p className="text-accent-600 text-sm mt-1">{cat.description}</p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop table layout */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-wood-200">
@@ -118,6 +137,7 @@ export default async function MenuControlPage() {
               </tbody>
             </table>
           </div>
+          </>
         )}
       </div>
     </div>

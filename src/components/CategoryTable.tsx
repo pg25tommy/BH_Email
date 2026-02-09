@@ -39,7 +39,56 @@ export default function CategoryTable({ categories, onEdit, onDelete }: Category
 
   return (
     <div className="diner-card rounded-2xl overflow-hidden">
-      <div className="overflow-x-auto">
+      {/* Mobile card layout */}
+      <div className="md:hidden divide-y divide-wood-100">
+        {categories.map((cat) => (
+          <div key={cat.id} className="p-4">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-accent-900 font-medium text-base">{cat.name}</h3>
+              <span
+                className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                  cat.active
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-gray-100 text-gray-600'
+                }`}
+              >
+                {cat.active ? 'Active' : 'Inactive'}
+              </span>
+            </div>
+            {cat.description && (
+              <p className="text-accent-600 text-sm mb-2">{cat.description}</p>
+            )}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center justify-center bg-primary-100 text-primary-700 text-sm font-semibold px-3 py-1 rounded-full">
+                  {cat._count.menuItems} items
+                </span>
+                <span className="text-accent-500 text-sm">Order: {cat.sortOrder}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => onEdit(cat)}
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-primary-600 hover:bg-primary-50 transition-colors"
+                  title="Edit category"
+                >
+                  <PencilIcon className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={() => handleDelete(cat.id, cat.name)}
+                  disabled={deletingId === cat.id}
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-red-500 hover:bg-red-50 transition-colors disabled:opacity-50"
+                  title="Delete category"
+                >
+                  <TrashIcon className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop table layout */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b border-wood-200 bg-wood-100/50">

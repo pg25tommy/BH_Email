@@ -70,8 +70,8 @@ export default function CategoryForm({ category, onSuccess, onCancel }: Category
         {isEditing ? 'EDIT CATEGORY' : 'ADD CATEGORY'}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-1">
+        <div className="grid grid-cols-3 md:flex md:flex-row gap-4">
+          <div className="col-span-2 md:flex-1">
             <label className="block text-sm font-semibold text-accent-900 mb-1">Name *</label>
             <input
               type="text"
@@ -82,7 +82,7 @@ export default function CategoryForm({ category, onSuccess, onCancel }: Category
               required
             />
           </div>
-          <div className="w-full md:w-32">
+          <div className="col-span-1 md:w-32">
             <label className="block text-sm font-semibold text-accent-900 mb-1">Sort Order</label>
             <input
               type="number"
@@ -102,11 +102,11 @@ export default function CategoryForm({ category, onSuccess, onCancel }: Category
             rows={2}
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button
             type="submit"
             disabled={loading}
-            className="btn-primary bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold py-3 px-6 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:hover:scale-100"
+            className="btn-primary bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold py-3 px-6 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:hover:scale-100 w-full sm:w-auto"
           >
             {loading ? 'Saving...' : isEditing ? 'Update Category' : 'Add Category'}
           </button>
@@ -114,7 +114,7 @@ export default function CategoryForm({ category, onSuccess, onCancel }: Category
             <button
               type="button"
               onClick={onCancel}
-              className="py-3 px-6 rounded-full border-2 border-wood-300 text-accent-700 font-semibold hover:bg-wood-100 transition-all"
+              className="py-3 px-6 rounded-full border-2 border-wood-300 text-accent-700 font-semibold hover:bg-wood-100 transition-all w-full sm:w-auto"
             >
               Cancel
             </button>

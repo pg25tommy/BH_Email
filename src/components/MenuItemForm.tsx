@@ -155,8 +155,8 @@ export default function MenuItemForm({ item, categories, onSuccess, onCancel }: 
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="order-1">
             <label className="block text-sm font-semibold text-accent-900 mb-1">Price ($) *</label>
             <input
               type="number"
@@ -169,7 +169,7 @@ export default function MenuItemForm({ item, categories, onSuccess, onCancel }: 
               required
             />
           </div>
-          <div>
+          <div className="order-3 md:order-2 col-span-2 md:col-span-1">
             <label className="block text-sm font-semibold text-accent-900 mb-1">Image URL</label>
             <input
               type="text"
@@ -179,7 +179,7 @@ export default function MenuItemForm({ item, categories, onSuccess, onCancel }: 
               placeholder="/images/menu/item.webp"
             />
           </div>
-          <div>
+          <div className="order-2 md:order-3">
             <label className="block text-sm font-semibold text-accent-900 mb-1">Sort Order</label>
             <input
               type="number"
@@ -220,11 +220,11 @@ export default function MenuItemForm({ item, categories, onSuccess, onCancel }: 
           </label>
         </div>
 
-        <div className="flex gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row gap-3 pt-2">
           <button
             type="submit"
             disabled={loading}
-            className="btn-primary bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold py-3 px-6 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:hover:scale-100"
+            className="btn-primary bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold py-3 px-6 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:hover:scale-100 w-full sm:w-auto"
           >
             {loading ? 'Saving...' : isEditing ? 'Update Item' : 'Add Item'}
           </button>
@@ -232,7 +232,7 @@ export default function MenuItemForm({ item, categories, onSuccess, onCancel }: 
             <button
               type="button"
               onClick={onCancel}
-              className="py-3 px-6 rounded-full border-2 border-wood-300 text-accent-700 font-semibold hover:bg-wood-100 transition-all"
+              className="py-3 px-6 rounded-full border-2 border-wood-300 text-accent-700 font-semibold hover:bg-wood-100 transition-all w-full sm:w-auto"
             >
               Cancel
             </button>
