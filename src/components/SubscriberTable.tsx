@@ -66,7 +66,52 @@ export default function SubscriberTable({
 
   return (
     <div className="diner-card rounded-2xl overflow-hidden">
-      <div className="overflow-x-auto">
+      {/* Mobile card layout */}
+      <div className="md:hidden divide-y divide-wood-100">
+        <div className="p-3 flex items-center gap-3 bg-wood-100/50">
+          <input
+            type="checkbox"
+            checked={selectedIds.length === subscribers.length}
+            onChange={toggleSelectAll}
+            className="w-5 h-5 accent-primary-600"
+          />
+          <span className="text-sm font-semibold text-accent-700">Select All</span>
+        </div>
+        {subscribers.map((sub) => (
+          <div key={sub.id} className="p-4">
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                checked={selectedIds.includes(sub.id)}
+                onChange={() => toggleSelect(sub.id)}
+                className="w-5 h-5 accent-primary-600 mt-0.5 flex-shrink-0"
+              />
+              <div className="flex-1 min-w-0">
+                <p className="text-accent-900 font-medium">{sub.firstName} {sub.lastName || ''}</p>
+                <p className="text-accent-600 text-sm truncate">{sub.email}</p>
+                <p className="text-accent-500 text-xs mt-1">
+                  Added {new Date(sub.createdAt).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                  })}
+                </p>
+              </div>
+              <button
+                onClick={() => handleDelete(sub.id, sub.firstName)}
+                disabled={deletingId === sub.id}
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-red-500 hover:bg-red-50 transition-colors disabled:opacity-50 flex-shrink-0"
+                title="Delete subscriber"
+              >
+                <TrashIcon className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop table layout */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b border-wood-200 bg-wood-100/50">

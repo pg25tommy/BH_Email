@@ -98,7 +98,31 @@ export default function EmailHistoryTable({ emails }: EmailHistoryTableProps) {
                   <h4 className="text-sm font-semibold text-accent-700 uppercase tracking-wider mb-2">
                     Recipients
                   </h4>
-                  <div className="overflow-x-auto">
+                  {/* Mobile recipient list */}
+                  <div className="md:hidden divide-y divide-wood-100">
+                    {email.recipients.map((recipient) => (
+                      <div key={recipient.id} className="py-2 flex items-center justify-between">
+                        <div className="min-w-0">
+                          <p className="text-accent-900 text-sm font-medium">
+                            {recipient.subscriber.firstName} {recipient.subscriber.lastName || ''}
+                          </p>
+                          <p className="text-accent-600 text-xs truncate">{recipient.subscriber.email}</p>
+                        </div>
+                        <span
+                          className={`inline-block px-2 py-0.5 rounded-full text-xs font-semibold flex-shrink-0 ml-2 ${
+                            recipient.status === 'sent'
+                              ? 'bg-green-100 text-green-800'
+                              : 'bg-red-100 text-red-800'
+                          }`}
+                        >
+                          {recipient.status}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Desktop recipient table */}
+                  <div className="hidden md:block overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
                         <tr className="border-b border-wood-200">

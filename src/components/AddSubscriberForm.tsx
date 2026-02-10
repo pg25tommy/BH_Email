@@ -85,7 +85,7 @@ export default function AddSubscriberForm({ onSuccess }: AddSubscriberFormProps)
         <button
           type="submit"
           disabled={loading}
-          className="btn-primary bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold py-3 px-6 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
+          className="btn-primary bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold py-3 px-6 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap w-full md:w-auto"
         >
           {loading ? 'Adding...' : 'Add Subscriber'}
         </button>

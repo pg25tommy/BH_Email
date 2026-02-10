@@ -39,3 +39,17 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
+export async function DELETE() {
+  try {
+    await prisma.emailRecipient.deleteMany();
+    await prisma.emailLog.deleteMany();
+
+    return NextResponse.json({ message: 'Email history cleared' });
+  } catch {
+    return NextResponse.json(
+      { error: 'Failed to clear email history' },
+      { status: 500 }
+    );
+  }
+}

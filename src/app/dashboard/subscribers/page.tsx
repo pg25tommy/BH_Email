@@ -96,17 +96,17 @@ export default function SubscribersPage() {
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="px-4 py-2 rounded-full bg-wood-200 text-accent-700 hover:bg-wood-300 transition-colors disabled:opacity-50"
+                className="px-5 py-3 md:px-4 md:py-2 rounded-full bg-wood-200 text-accent-700 hover:bg-wood-300 transition-colors disabled:opacity-50"
               >
                 Previous
               </button>
-              <span className="px-4 py-2 text-accent-600">
+              <span className="px-4 py-3 md:py-2 text-accent-600">
                 Page {page} of {totalPages}
               </span>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages}
-                className="px-4 py-2 rounded-full bg-wood-200 text-accent-700 hover:bg-wood-300 transition-colors disabled:opacity-50"
+                className="px-5 py-3 md:px-4 md:py-2 rounded-full bg-wood-200 text-accent-700 hover:bg-wood-300 transition-colors disabled:opacity-50"
               >
                 Next
               </button>
