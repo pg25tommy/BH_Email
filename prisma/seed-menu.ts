@@ -13,7 +13,7 @@ const menuData = {
         { id: "perogy-burger", name: "2. Perogy Beef Burger", description: "4 mini cheese and potato perogies, sautéed onion and shredded mozza and cheddar cheese topped with a dollop of sour cream n' chives", price: 25.69, featured: true, bestSeller: false, image: "/images/menu/burgers/The_Perogy.webp" },
         { id: "bbq-cheddar-bacon", name: "3. BBQ, Cheddar, Bacon & Mushroom Burger", description: "Democratically elected for its classic simplicity", price: 24.49, featured: false, bestSeller: false, image: "/images/menu/burgers/BBQ_Cheadar_Mushroom_Burger.jpg" },
         { id: "teriyaki-mozz-bacon", name: "4. Teriyaki, Mozzarella, Bacon & Mushroom Burger", description: "Miss Piggy's favorite", price: 24.49, featured: false, bestSeller: false, image: "/images/menu/burgers/Teryaki_MushRoom_Mozza_bacon_burger.webp" },
-        { id: "swiss-mozz-pickle", name: "5. Swiss, Mozzarella & Pickle Burger", description: "A cheese lover's dream, with a zing", price: 23.19, featured: false, bestSeller: false, image: "/images/menu/burgers/swiss-mozz-pickle.jpg" },
+        { id: "swiss-mozz-pickle", name: "5. Swiss, Mozzarella & Pickle Burger", description: "A cheese lover's dream, with a zing", price: 23.19, featured: false, bestSeller: false, image: "/images/menu/burgers/Swiss_mozza_pickle_Burger.jpg" },
         { id: "thai-beef", name: "6. Thai Beef Burger", description: "Crunchy peanut butter, bacon, green onion and sweet thai chilli sauce", price: 22.89, featured: false, bestSeller: false, image: "/images/menu/burgers/Thai_Beef_Burger.jpg" },
         { id: "breaded-chicken", name: "7. Breaded Chicken, Bacon, Cheddar & Mozzarella Burger", description: "Perfection", price: 27.19, featured: false, bestSeller: true, image: "/images/menu/burgers/Breaded_Chicken_Cheedar_Mozza_Bacon.jpg" },
         { id: "teriyaki-chicken", name: "8. Teriyaki Grilled Chicken, Swiss & Bacon Burger", description: "It will make you yodel!!", price: 27.99, featured: false, bestSeller: false, image: "/images/menu/burgers/The_Teryaki_Grilled_Chicken_and_Swiss.webp" },
@@ -57,7 +57,7 @@ const menuData = {
         { id: "beef-burger", name: "Heaven Sent Beef Burger", description: "With lettuce, tomato, red onions and our burger sauce. Add an extra patty for $4.49", price: 18.09, featured: false, bestSeller: false, image: "/images/menu/burgers/The_Heaven_Sent_Beef_Burger.webp" },
         { id: "grilled-chicken-burger", name: "Heaven Sent Grilled Chicken Burger", description: "With lettuce, tomato and our burger sauce. Add an extra chicken breast $5.59", price: 20.79, featured: false, bestSeller: false, image: "/images/menu/burgers/The_Hevaen_Sent_Grilled_Chicken_Burger.webp" },
         { id: "meatless-burger", name: "Heaven Sent Meatless Burger", description: "With lettuce, tomato, red onions and our burger sauce. Add an extra patty for $4.69", price: 18.49, featured: false, bestSeller: false, image: "/images/menu/burgers/The_Hevaen_Sent_Veggie_Burger.webp" },
-        { id: "cod-burger", name: "Heaven Sent Cod Burger", description: "With lettuce, tomato, red onions and our house made tartar sauce, beer battered, grilled or cajun.", price: 20.89, featured: false, bestSeller: false, image: "/images/menu/burgers/Grilled_Cod_Burger.jpg" },
+        { id: "cod-burger", name: "Heaven Sent Cod Burger", description: "With lettuce, tomato, red onions and our house made tartar sauce, beer battered, grilled or cajun.", price: 20.89, featured: false, bestSeller: false, image: "/images/menu/burgers/Battered_Cod_Burger.jpg" },
       ]
     },
     {
@@ -135,11 +135,11 @@ const menuData = {
       name: "Non-Alcoholic Beverages",
       description: "Refreshing drinks for everyone",
       items: [
-        { id: "coffee", name: "\"Bottomless\" Heavenly Coffee", description: "Unlimited refills with a meal. Leaded and Unleaded.", price: 3.24, featured: false, bestSeller: false, image: "/images/menu/beverages/coffee.jpg" },
+        { id: "coffee", name: "\"Bottomless\" Heavenly Coffee", description: "Unlimited refills with a meal. Leaded and Unleaded.", price: 3.24, featured: false, bestSeller: false, image: "/images/menu/coffees/Coffee.jpg" },
         { id: "juice", name: "Juice", description: "Apple, Cranberry and Orange", price: 3.79, featured: false, bestSeller: false, image: "/images/menu/beverages/juice.jpg" },
         { id: "ice-cream-float", name: "Old Fashioned Ice Cream Float", description: "Soft drink choices", price: 5.74, featured: false, bestSeller: false, image: "/images/menu/beverages/ice-cream-float.jpg" },
         { id: "soft-drinks", name: "\"Bottomless\" Soft Drinks", description: "Pepsi, 7-up, Rootbeer, Grape Crush, Ginger Ale, Diet Pepsi, Cream Soda, Ice Tea, Lemonade", price: 3.69, featured: false, bestSeller: false, image: "/images/menu/beverages/soft-drinks.jpg" },
-        { id: "tea", name: "Tea", description: "Hot tea", price: 3.24, featured: false, bestSeller: false, image: "/images/menu/beverages/tea.jpg" },
+        { id: "tea", name: "Tea", description: "Hot tea", price: 3.24, featured: false, bestSeller: false, image: "/images/menu/coffees/Tea.jpg" },
         { id: "hot-chocolate", name: "Hot Chocolate", description: "Rich hot chocolate", price: 3.24, featured: false, bestSeller: false, image: "/images/menu/beverages/hot-chocolate.jpg" },
         { id: "milk", name: "Milk", description: "Large (16oz. glass)", price: 3.79, featured: false, bestSeller: false, image: "/images/menu/beverages/milk.jpg" },
       ]
@@ -152,8 +152,8 @@ const menuData = {
         { id: "steel-oak-glass", name: "Steel 'n' Oak (20 oz. glass)", description: "Steel 'n' Oak on draft", price: 7.99, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/Steel_and_Oak_IPA.jpg" },
         { id: "steel-oak-pitcher", name: "Steel 'n' Oak Pitcher (60 oz.)", description: "Steel 'n' Oak pitcher", price: 21.34, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/Steel_and_Oak_IPA.jpg" },
         { id: "gimme-gamble", name: "Gimme a Gamble (355 ml.)", description: "A true gamble our choice of beer", price: 5.69, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/gimme-gamble.jpg" },
-        { id: "domestic-bottles", name: "Domestic Bottles (341 ml.)", description: "Sleemans Honey Brown, Budweiser, Canadian, Coors Light, Kokanee, MGD", price: 6.39, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/Beer_Selection.jpg" },
-        { id: "import-bottles", name: "Import Bottles (330 ml.)", description: "Heineken, Corona, Stella, Guiness", price: 6.99, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/import-bottles.jpg" },
+        { id: "domestic-bottles", name: "Domestic Bottles (341 ml.)", description: "Sleemans Honey Brown, Budweiser, Canadian, Coors Light, Kokanee, MGD", price: 6.39, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/Domestic_beer.jpg" },
+        { id: "import-bottles", name: "Import Bottles (330 ml.)", description: "Heineken, Corona, Stella, Guiness", price: 6.99, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/Import_Beer_Selection.jpg" },
         { id: "ciders", name: "Ciders (330 ml.)", description: "Apple, Peach, Pear or Smirnoff Ice", price: 6.99, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/ciders.jpg" },
         { id: "motts-caesar", name: "Mott's Caesar (355 ml.)", description: "Classic Caesar", price: 7.19, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/motts-caesar.jpg" },
         { id: "strongbow", name: "Strongbow (440 ml.)", description: "Strongbow cider", price: 7.29, featured: false, bestSeller: false, image: "/images/menu/beer-ciders/strongbow.jpg" },
