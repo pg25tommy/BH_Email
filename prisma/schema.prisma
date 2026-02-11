@@ -70,3 +70,18 @@ model MenuItem {
 
   @@index([categoryId])
 }
+
+model WeeklyFeatured {
+  id                  String   @id @default(cuid())
+  weekOf              String
+  burgerName          String
+  burgerDescription   String?
+  burgerPrice         Decimal  @db.Decimal(10, 2)
+  burgerImage         String?
+  sandwichName        String
+  sandwichDescription String?
+  sandwichPrice       Decimal  @db.Decimal(10, 2)
+  sandwichImage       String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
