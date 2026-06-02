@@ -4,8 +4,12 @@ const prisma = new PrismaClient();
 const COMING_SOON = '/images/menu/burgers/Coming_Soon.png';
 
 async function main() {
+  let total = 0;
+
+  // === COMING SOON PLACEHOLDER (23 items) ===
+
   // Unique names — safe to match by name alone
-  const uniqueNames = [
+  const comingSoonNames = [
     'Yam Wedges',
     "Child's Cheese Burger",
     'Grilled Cheese Sandwich',
@@ -30,12 +34,12 @@ async function main() {
   ];
 
   const { count: uniqueCount } = await prisma.menuItem.updateMany({
-    where: { name: { in: uniqueNames } },
+    where: { name: { in: comingSoonNames } },
     data: { image: COMING_SOON },
   });
-  console.log(`Updated ${uniqueCount} uniquely-named items.`);
+  total += uniqueCount;
 
-  // "Chicken Fingers" exists in both Appetizers and Kids — target Kids only
+  // "Chicken Fingers" and "Fish 'n' Chips" exist in multiple categories — target Kids only
   const { count: kidsChicken } = await prisma.menuItem.updateMany({
     where: {
       name: 'Chicken Fingers',
@@ -43,9 +47,8 @@ async function main() {
     },
     data: { image: COMING_SOON },
   });
-  console.log(`Updated ${kidsChicken} kids Chicken Fingers.`);
+  total += kidsChicken;
 
-  // "Fish 'n' Chips" exists in both Specialty and Kids — target Kids only
   const { count: kidsFish } = await prisma.menuItem.updateMany({
     where: {
       name: "Fish 'n' Chips",
@@ -53,10 +56,47 @@ async function main() {
     },
     data: { image: COMING_SOON },
   });
-  console.log(`Updated ${kidsFish} kids Fish 'n' Chips.`);
+  total += kidsFish;
 
-  const total = uniqueCount + kidsChicken + kidsFish;
-  console.log(`\nDone. Total items updated: ${total} (expected 23).`);
+  console.log(`Coming Soon placeholder: ${uniqueCount + kidsChicken + kidsFish} items`);
+
+  // === NEW SPECIFIC IMAGES (8 items) ===
+
+  const specificUpdates: [string, string][] = [
+    ['The Classic Beef Dip',        '/images/menu/sandwiches/Beef_Dip_as_Philliy.jpg'],
+    ['Toasted B.L.T.',              '/images/menu/sandwiches/BLT.jpg'],
+    ['Gimme a Gamble (355 ml.)',    '/images/menu/beer-ciders/Gamble_Beer.jpg'],
+    ['Hot Chocolate',               '/images/menu/beverages/Hot_Choclate.jpg'],
+    ['Strawberry Lemonade',         '/images/menu/beverages/Special_Drinks.jpg'],
+    ['Blue Raspberry Lemonade',     '/images/menu/beverages/Special_Drinks.jpg'],
+    ['Shirley Temple',              '/images/menu/beverages/Special_Drinks.jpg'],
+    ['Roy Rogers',                  '/images/menu/beverages/Special_Drinks.jpg'],
+  ];
+
+  let specificCount = 0;
+  for (const [name, image] of specificUpdates) {
+    const { count } = await prisma.menuItem.updateMany({ where: { name }, data: { image } });
+    specificCount += count;
+  }
+  total += specificCount;
+  console.log(`New specific images: ${specificCount} items`);
+
+  // === PATH CORRECTIONS (2 items) ===
+
+  const corrections: [string, string][] = [
+    ['Awesome! Awesome! Awesome!',   '/images/menu/burgers/Awesome_Burger.jpg'],
+    ['Greek Goddess Veggie Burger',  '/images/menu/burgers/Greek_Goddess_Burger.webp'],
+  ];
+
+  let correctionCount = 0;
+  for (const [name, image] of corrections) {
+    const { count } = await prisma.menuItem.updateMany({ where: { name }, data: { image } });
+    correctionCount += count;
+  }
+  total += correctionCount;
+  console.log(`Path corrections: ${correctionCount} items`);
+
+  console.log(`\nDone. Total items updated: ${total} (expected 33).`);
 }
 
 main()
